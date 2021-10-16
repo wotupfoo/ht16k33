@@ -80,9 +80,12 @@ HT16K33::HT16K33(){
 /****************************************************************/
 // Setup the env
 //
-void HT16K33::begin(uint8_t address){
+void HT16K33::begin(uint8_t address, bool TWIbegin){
   _address=address | BASEHTADDR;
-  Wire.begin(_address);
+  if(TWIbegin)
+  {
+    Wire.begin(_address);
+  }
   i2c_write(HT16K33_SS  | HT16K33_SS_NORMAL); // Wakeup
   i2c_write(HT16K33_DSP | HT16K33_DSP_ON | HT16K33_DSP_NOBLINK); // Display on and no blinking
   i2c_write(HT16K33_RIS | HT16K33_RIS_OUT); // INT pin works as row output 

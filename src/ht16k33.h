@@ -55,7 +55,7 @@ class HT16K33
 
   HT16K33(); // the class itself
 
-  void    begin(uint8_t address);
+  void    begin(uint8_t address, bool TWIbegin);
   void    end();
   void    clearAll(); // clear all LEDs
   uint8_t sleep();  // stop oscillator to put the chip to sleep
