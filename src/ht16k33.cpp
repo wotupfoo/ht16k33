@@ -140,7 +140,7 @@ uint8_t HT16K33::i2c_read(uint8_t addr){
 // return value is how many bytes that where really read
 //
 uint8_t HT16K33::i2c_read(uint8_t addr,uint8_t *data,uint8_t size){
-  uint8_t i,retcnt,val;
+  uint8_t i,retcnt;
   
   i2c_write(addr);
   retcnt=Wire.requestFrom(_address, size);
@@ -241,6 +241,7 @@ boolean HT16K33::getLed(uint8_t ledno,boolean Fresh){
   if (ledno>=0 && ledno<128){
     return bitRead(displayRam[int(ledno/8)],ledno % 8) != 0;
   }
+  return 0;
 } // getLed
 
 /****************************************************************/
