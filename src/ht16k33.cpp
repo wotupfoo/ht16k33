@@ -81,7 +81,6 @@ HT16K33::HT16K33(){
 // Setup the env
 //
 void HT16K33::begin(uint8_t address){
-  uint8_t i;
   _address=address | BASEHTADDR;
   Wire.begin(_address);
   i2c_write(HT16K33_SS  | HT16K33_SS_NORMAL); // Wakeup
