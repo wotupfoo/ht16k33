@@ -35,6 +35,16 @@
 
 #include "Arduino.h"
 
+/* There are up to eight (8) I2C slave addresses. E0..E7 == 0x70..0x77
+   Depending on the chip package this is reduced.
+    20-pin E0
+    24-pin E0..E3
+    28-pin E0..E7
+   See datasheet pg.22 for details.
+   https://www.holtek.com/documents/10179/116711/HT16K33v120.pdf
+*/
+#define HT16K33_MAX_DEVICES 8
+
 class HT16K33
 {
  public:
