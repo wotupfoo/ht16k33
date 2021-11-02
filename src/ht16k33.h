@@ -62,6 +62,7 @@ class HT16K33
   uint8_t normal(); // wake up chip and start ocillator
   uint8_t clearLed(uint8_t ledno); // 16x8 = 128 LEDs to turn on, 0-127
   uint8_t setLed(uint8_t ledno); // 16x8 = 128 LEDs to turn on, 0-127
+  uint8_t setDot(uint8_t digit, bool on); // Set|Clear the Dot Point on the 'n'th digit
   void    define7segFont(uint8_t *ptr); // Pass a pointer to a font table for 7seg
   void    define16segFont(uint16_t *ptr); // Pass a pointer to a font table for 16seg
   uint8_t set7Seg(uint8_t dig, uint8_t cha, boolean dp); // position 0-15, 0-15 (0-F Hexadecimal), decimal point

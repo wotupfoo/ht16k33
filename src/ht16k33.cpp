@@ -231,6 +231,24 @@ uint8_t HT16K33::setLed(uint8_t ledno){ // 16x8 = 128 LEDs to turn on, 0-127
 } // setLed
 
 /****************************************************************/
+// Turn on one dot point led but only in memory
+// To do it on chip a call to "sendLed" is needed
+//
+uint8_t HT16K33::setDot(uint8_t digit, bool on){
+  if (digit>=0 && digit<8){
+    if(on){
+      setLed((digit * 16)+14);
+    }
+    else {
+  	  clearLed((digit * 16)+14);
+    }
+    return 0;
+  } else {
+    return 1;
+  }
+} // setDot
+
+/****************************************************************/
 // check if a specific led is on(true) or off(false)
 //
 boolean HT16K33::getLed(uint8_t ledno,boolean Fresh){ 
